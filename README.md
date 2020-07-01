@@ -14,6 +14,7 @@ The app accept arguements in the following way:
   3. G# (g)
   4. F# (f)
   5. Eb (e)
+
 Those are all the commands.
 
 Here is an example: (F)-1000 play F sharp high for 1000 miliseconds (1 second)
