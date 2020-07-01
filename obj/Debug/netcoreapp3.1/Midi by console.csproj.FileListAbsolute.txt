@@ -1,0 +1,13 @@
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.exe
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.deps.json
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.runtimeconfig.json
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.runtimeconfig.dev.json
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.dll
+D:\Users\cayde\Documents\Code\C#\Midi by console\bin\Debug\netcoreapp3.1\Midi by console.pdb
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.csprojAssemblyReference.cache
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.AssemblyInfoInputs.cache
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.AssemblyInfo.cs
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.csproj.CoreCompileInputs.cache
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.dll
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.pdb
+D:\Users\cayde\Documents\Code\C#\Midi by console\obj\Debug\netcoreapp3.1\Midi by console.genruntimeconfig.cache
