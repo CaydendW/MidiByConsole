@@ -56,7 +56,7 @@ namespace ConsoleApp1
                 string fille = Console.ReadLine();
                 if (File.Exists(Directory.GetCurrentDirectory() + fille))
                 {
-                    fromcon = File.ReadAllText(Directory.GetCurrentDirectory() + fille);
+                    fromcon = File.ReadAllText(fille);
                 }
                 else
                 {
