@@ -40,7 +40,30 @@ namespace ConsoleApp1
             int lef = 311;
             int ld = 293;
 
-            string fromcon = Console.ReadLine().ToString();
+            string fromcon = " ";
+
+            Console.Write("Would you like to [r]ead a file or [w]rite a song in the command line: ");
+            string howtoplay = Console.ReadLine();
+
+            if (howtoplay == "w")
+            {
+                Console.Write("Type your melody in here: ");
+                fromcon = Console.ReadLine();
+            }
+            else if (howtoplay == "r")
+            {
+                Console.Write("What file do you want to play: ");
+                string fille = Console.ReadLine();
+                if (File.Exists(Directory.GetCurrentDirectory() + fille))
+                {
+                    fromcon = File.ReadAllText(Directory.GetCurrentDirectory() + fille);
+                }
+                else
+                {
+                    Console.WriteLine("This file does not exist!");
+                }
+            }
+
             string[] sep = fromcon.Split(" ");
             int i = 0;
             while (i != fromcon.Length - 1)
@@ -51,7 +74,9 @@ namespace ConsoleApp1
                     string dur2 = input.Substring(input.LastIndexOf('-') + 1);
                     int dur = int.Parse(dur2);
                     string toplay = input.Split('-')[0];
-
+                    //
+                    //low ocatave//
+                    //
                     if (toplay == "a")
                     {
                         Console.Beep(la, dur);
@@ -80,7 +105,7 @@ namespace ConsoleApp1
                     {
                         Console.Beep(lg, dur);
                     }
-                    // specials
+                    // specials //
                     else if (toplay == "(c)")
                     {
                         Console.Beep(lcs, dur);
@@ -101,9 +126,9 @@ namespace ConsoleApp1
                     {
                         Console.Beep(lef, dur);
                     }
-
-                    //new octave//
-
+                    //
+                    //high octave//
+                    //
                     else if (toplay == "A")
                     {
                         Console.Beep(ha, dur);
@@ -140,7 +165,7 @@ namespace ConsoleApp1
                     {
                         Thread.Sleep(dur);
                     }
-                    //specials
+                    //specials//
                     else if (toplay == "(C)")
                     {
                         Console.Beep(hcs, dur);
@@ -160,6 +185,11 @@ namespace ConsoleApp1
                     else if (toplay == "(E)")
                     {
                         Console.Beep(hef, dur);
+                    }
+                    else
+                    {
+                        Console.WriteLine(toplay = " is not a valid character!");
+                        break;
                     }
                     i++;
                 }
