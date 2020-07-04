@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bG5DiwnfZtsiRBbe38CAWA7y8EUaG4BsovMbdlkkpPKDOaifSXqjN8MaG4mW6ZzvEre6r6ilxovfVgWb95w0VA==",
+  "dgSpecHash": "OHkAY11CNuKnS/Ux7QVt3csAFklY+tkFbhV64GRNaoHiXu/i+vtLFMeXBi1hblDqTaZNj9xPE06hpsdw9YaLbQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Midi by console\\Midi by console.csproj",
+  "projectFilePath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Paint in console\\Paint in console.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cayde\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],

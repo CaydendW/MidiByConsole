@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\cayde\\Documents\\Code\\C#\\Midi by console\\Midi by console.csproj",
-      "projectName": "Midi by console",
-      "projectPath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Midi by console\\Midi by console.csproj",
+      "projectUniqueName": "D:\\Users\\cayde\\Documents\\Code\\C#\\Paint in console\\Paint in console.csproj",
+      "projectName": "Paint in console",
+      "projectPath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Paint in console\\Paint in console.csproj",
       "packagesPath": "C:\\Users\\cayde\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Midi by console\\obj\\",
+      "outputPath": "D:\\Users\\cayde\\Documents\\Code\\C#\\Paint in console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"

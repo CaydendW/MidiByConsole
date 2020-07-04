@@ -1,0 +1,13 @@
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.exe
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.deps.json
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.runtimeconfig.json
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.runtimeconfig.dev.json
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.dll
+D:\Users\cayde\Documents\Code\C#\Paint in console\bin\Debug\netcoreapp3.1\Paint in console.pdb
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.csprojAssemblyReference.cache
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.AssemblyInfoInputs.cache
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.AssemblyInfo.cs
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.csproj.CoreCompileInputs.cache
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.dll
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.pdb
+D:\Users\cayde\Documents\Code\C#\Paint in console\obj\Debug\netcoreapp3.1\Paint in console.genruntimeconfig.cache
