@@ -1,181 +1,279 @@
-﻿//This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
-//Please credit me at this URL: https://github.com/CaydendW/
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Threading;
+using System.Drawing;
 
-using System;
-
-namespace TextEditor
+namespace ConsoleApp1
 {
     class Program
     {
-        public static bool isForbiddenKey(ConsoleKey key)
-        {
-            ConsoleKey[] forbiddenKeys = { ConsoleKey.Print, ConsoleKey.PrintScreen, ConsoleKey.Pause, ConsoleKey.Home, ConsoleKey.PageUp, ConsoleKey.PageDown, ConsoleKey.End, ConsoleKey.NumPad0, ConsoleKey.NumPad1, ConsoleKey.NumPad2, ConsoleKey.NumPad3, ConsoleKey.NumPad4, ConsoleKey.NumPad5, ConsoleKey.NumPad6, ConsoleKey.NumPad7, ConsoleKey.NumPad8, ConsoleKey.NumPad9, ConsoleKey.Insert, ConsoleKey.F1, ConsoleKey.F2, ConsoleKey.F3, ConsoleKey.F4, ConsoleKey.F5, ConsoleKey.F6, ConsoleKey.F7, ConsoleKey.F8, ConsoleKey.F9, ConsoleKey.F10, ConsoleKey.F11, ConsoleKey.F12, ConsoleKey.Add, ConsoleKey.Divide, ConsoleKey.Multiply, ConsoleKey.Subtract, ConsoleKey.LeftWindows, ConsoleKey.RightWindows };
-            for (int i = 0; i < forbiddenKeys.Length; i++)
-            {
-                if (key == forbiddenKeys[i]) return true;
-            }
-            return false;
-        }
+        public static string toplay = "";
 
-        public static void homescreenforcanvas()
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            Console.WriteLine("Welcome to painting in console!");
-            Console.WriteLine("");
-            Console.WriteLine("Use your arrow keys to move the cursor");
-            Console.WriteLine("Everything is written left of the cursor");
-            Console.WriteLine("use w, a, s and d to move the cursor without painting");
-            Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("Press 1 for red");
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Press 2 for cyan");
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Press 3 for yellow");
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.WriteLine("press 4 for green");
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("press 5 for blue");
-            Console.BackgroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("press 6 for pink");
-            Console.BackgroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("press 7 for purple");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.WriteLine("press 8 for black");
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("press 9 for white");
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.WriteLine("press 0 for gray");
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("");
-            Console.WriteLine("Press Esc (Escape) to exit");
-            Console.WriteLine("Press Tab to get help (This resets your progress)");
-            Console.WriteLine("");
-            Console.WriteLine("Press any key to continue into the canvas");
-            Console.ReadKey();
-            Console.Clear();
-            Console.SetCursorPosition(1, 0);
-        }
         static void Main(string[] args)
         {
-            homescreenforcanvas();
+            int hcs = 1108;
+            int hc = 1046;
+            int hb = 987;
+            int hbf = 932;
+            int ha = 880;
+            int hgs = 830;
+            int hg = 783;
+            int hfs = 739;
+            int hf = 698;
+            int he = 659;
+            int hef = 622;
+            int hd = 587;
 
-            ConsoleKeyInfo info;
+            int lcs = 554;
+            int lc = 523;
+            int lb = 493;
+            int lbf = 466;
+            int la = 440;
+            int lgs = 415;
+            int lg = 391;
+            int lfs = 370;
+            int lf = 349;
+            int le = 329;
+            int lef = 311;
+            int ld = 293;
 
-            while (true)
+            int vlcs = 277;
+            int vlc = 261;
+            int vlb = 246;
+            int vlbf = 233;
+            int vla = 220;
+            int vlgs = 207;
+            int vlg = 195;
+            int vlf = 174;
+            int vlfs = 185;
+            int vle = 165;
+            int vlef = 155;
+            int vld = 146;
+
+            string fromcon = " ";
+
+            Console.Write("Would you like to [r]ead a file or [w]rite a song in the command line: ");
+            string howtoplay = Console.ReadLine();
+
+            if (howtoplay == "w")
+            {
+                Console.Write("Type your melody in here: ");
+                fromcon = Console.ReadLine();
+            }
+            else if (howtoplay == "r")
+            {
+                Console.Write("What file do you want to play: ");
+                string fille = Console.ReadLine().Replace("\"", "");
+                if (File.Exists(fille))
+                {
+                    fromcon = File.ReadAllText(fille);
+                    fromcon = fromcon.Replace("\r\n", " ");
+                }
+                else
+                {
+                    Console.WriteLine("This file does not exist!");
+                }
+            }
+
+            string[] sep = fromcon.Split(" ");
+            int i = 0;
+            while (i != fromcon.Length - 1)
             {
                 try
                 {
-                    info = Console.ReadKey(true);
+                    string input = sep[i];
+                    string dur2 = input.Substring(input.LastIndexOf('-') + 1);
+                    int dur = int.Parse(dur2);
+                    string toplay = input.Split('-')[0];
 
-                    if (info.Key == ConsoleKey.W)
+                    //
+                    // very low ocatave
+                    //
+                    if (toplay == "[a]")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+                        Console.Beep(vla, dur);
                     }
-                    else if (info.Key == ConsoleKey.S)
+                    else if (toplay == "[b]")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop + 1);
+                        Console.Beep(vlb, dur);
                     }
-                    else if (info.Key == ConsoleKey.A)
+                    else if (toplay == "[c]")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                        Console.Beep(vlc, dur);
                     }
-                    else if (info.Key == ConsoleKey.D)
+                    else if (toplay == "[d]")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft + 1, Console.CursorTop);
+                        Console.Beep(vld, dur);
+                    }
+                    else if (toplay == "[e]")
+                    {
+                        Console.Beep(vle, dur);
+                    }
+                    else if (toplay == "[f]")
+                    {
+                        Console.Beep(vlf, dur);
+                    }
+                    else if (toplay == "[g]")
+                    {
+                        Console.Beep(vlg, dur);
+                    }
+                    // special notes
+                    else if (toplay == "([c])")
+                    {
+                        Console.Beep(vlcs, dur);
+                    }
+                    else if (toplay == "([b])")
+                    {
+                        Console.Beep(vlbf, dur);
+                    }
+                    else if (toplay == "([g])")
+                    {
+                        Console.Beep(vlgs, dur);
+                    }
+                    else if (toplay == "([f])")
+                    {
+                        Console.Beep(vlfs, dur);
+                    }
+                    else if (toplay == "([e])")
+                    {
+                        Console.Beep(vlef, dur);
                     }
 
-                    else if (info.Key == ConsoleKey.UpArrow)
+                    //
+                    //low ocatave//
+                    //
+
+                    else if (toplay == "a")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop - 1);
-                        Console.Write(" ");
+                        Console.Beep(la, dur);
                     }
-                    else if (info.Key == ConsoleKey.DownArrow)
+                    else if (toplay == "b")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop + 1);
-                        Console.Write(" ");
+                        Console.Beep(lb, dur);
                     }
-                    else if (info.Key == ConsoleKey.LeftArrow)
+                    else if (toplay == "c")
                     {
-                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-                        Console.Write(" ");
+                        Console.Beep(lc, dur);
                     }
-                    else if (info.Key == ConsoleKey.RightArrow)
+                    else if (toplay == "d")
                     {
-                        Console.Write(" ");
+                        Console.Beep(ld, dur);
+                    }
+                    else if (toplay == "e")
+                    {
+                        Console.Beep(le, dur);
+                    }
+                    else if (toplay == "f")
+                    {
+                        Console.Beep(lf, dur);
+                    }
+                    else if (toplay == "g")
+                    {
+                        Console.Beep(lg, dur);
+                    }
+                    // specials //
+                    else if (toplay == "(c)")
+                    {
+                        Console.Beep(lcs, dur);
+                    }
+                    else if (toplay == "(b)")
+                    {
+                        Console.Beep(lbf, dur);
+                    }
+                    else if (toplay == "(g)")
+                    {
+                        Console.Beep(lgs, dur);
+                    }
+                    else if (toplay == "(f)")
+                    {
+                        Console.Beep(lfs, dur);
+                    }
+                    else if (toplay == "(e)")
+                    {
+                        Console.Beep(lef, dur);
                     }
 
-                    else if (info.Key == ConsoleKey.D1)
+                    //
+                    //high octave//
+                    //
+
+                    else if (toplay == "A")
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.Beep(ha, dur);
                     }
-                    else if (info.Key == ConsoleKey.D2)
+                    else if (toplay == "B")
                     {
-                        Console.BackgroundColor = ConsoleColor.Cyan;
+                        Console.Beep(hb, dur);
                     }
-                    else if (info.Key == ConsoleKey.D3)
+                    else if (toplay == "C")
                     {
-                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.Beep(hc, dur);
                     }
-                    else if (info.Key == ConsoleKey.D4)
+                    else if (toplay == "D")
                     {
-                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.Beep(hd, dur);
                     }
-                    else if (info.Key == ConsoleKey.D5)
+                    else if (toplay == "E")
                     {
-                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.Beep(he, dur);
                     }
-                    else if (info.Key == ConsoleKey.D6)
+                    else if (toplay == "F")
                     {
-                        Console.BackgroundColor = ConsoleColor.Magenta;
+                        Console.Beep(hf, dur);
                     }
-                    else if (info.Key == ConsoleKey.D7)
+                    else if (toplay == "G")
                     {
-                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Console.Beep(hg, dur);
                     }
-                    else if (info.Key == ConsoleKey.D8)
+                    else if (toplay == "r")
                     {
-                        Console.BackgroundColor = ConsoleColor.Black;
+                        Thread.Sleep(dur);
                     }
-                    else if (info.Key == ConsoleKey.D9)
+                    else if (toplay == "R")
                     {
-                        Console.BackgroundColor = ConsoleColor.White;
+                        Thread.Sleep(dur);
                     }
-                    else if (info.Key == ConsoleKey.D0)
+                    //specials//
+                    else if (toplay == "(C)")
                     {
-                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.Beep(hcs, dur);
                     }
-                    else if (info.Key == ConsoleKey.Escape)
+                    else if (toplay == "(B)")
                     {
-                        Console.Clear();
-                        break;
+                        Console.Beep(hbf, dur);
                     }
-                    else if (info.Key == ConsoleKey.Tab)
+                    else if (toplay == "(G)")
                     {
-                        homescreenforcanvas();
+                        Console.Beep(hgs, dur);
                     }
+                    else if (toplay == "(F)")
+                    {
+                        Console.Beep(hfs, dur);
+                    }
+                    else if (toplay == "(E)")
+                    {
+                        Console.Beep(hef, dur);
+                    }
+
+                    //rest
+                    else if (toplay == "_")
+                    {
+                        Thread.Sleep(dur);
+                    }
+
+                    //wrong char
                     else
                     {
-                        if (isForbiddenKey(info.Key))
-                        {
-                            ;
-                        }
-                        else
-                        {
-                            
-                        }
+                        Console.WriteLine(toplay = " is not a valid character!");
+                        Console.ReadKey();
+                        break;
                     }
+                    i++;
                 }
-                catch
-                {
-
-                }
+                catch (IndexOutOfRangeException) { break; }
             }
         }
     }
