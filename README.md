@@ -11,11 +11,11 @@ The app accept arguements in the following way:
 * After every letter it must get a - with a number on the end to denote time in miliseconds. E.G: A-200 plays a for 200 miliseconds.
 * _ is a rest command. It too has to be followed by a - to denote time in miliseconds.
 * Wraping the letter in brackets () makes it have a special note. Cases and length still apply. Low notes have the round brackets on the outside: \(\[g\]\) Special notes are:
-C# (c)
-Bb (b)
-G# (g)
-F# (f)
-Eb (e)
+  1. C# (c)
+  2. Bb (b)
+  3. G# (g)
+  4. F# (f)
+  5. Eb (e)
 Those are all the commands.
 
 Here is an example: (F)-1000 play F sharp high for 1000 miliseconds (1 second)
