@@ -16,6 +16,7 @@ The app accept arguements in the following way:
   3. G# (g)
   4. F# (f)
   5. Eb (e)
+* Adding end; to the end of music breaks from the loop. This allows for comments to be put the end of the text file.
 Those are all the commands.
 
 Here is an example: (F)-1000 play F sharp high for 1000 miliseconds (1 second)
@@ -24,3 +25,5 @@ A simple song
 Here is mary had a little lamb in MidiByConsole:
 
 b-500 a-500 g-500 a-500 b-500 b-500 b-1000 a-500 a-500 a-1000 b-500 b-500 b-1000 b-500 a-500 g-500 a-500 b-500 b-500 b-500 b-500 a-500 a-500 b-500 a-500 g-2000
+
+More complex songs can be found in the samples file.
