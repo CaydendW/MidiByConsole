@@ -5,15 +5,71 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading;
 using System.Drawing;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ConsoleApp1
 {
     class Program
     {
         public static string toplay = "";
+        public static string r1 = "";
+        public static string tim1 = "";
+        public static string oct1 = "";
+
+        public static Random random = new Random();
+
+        public static string getnot(string r, string tim, string oct)
+        {
+            string[] notchars = { };
+            string[] timesig = { };
+
+            string[] fullnotchars = { "a", "b", "c", "d", "e", "f", "g", "(c)", "(b)", "(g)", "(f)", "(e)", "A", "B", "C", "D", "E", "F", "G", "(C)", "(B)", "(G)", "(F)", "(E)", "[a]", "[b]", "[c]", "[d]", "[e]", "[f]", "[g]", "([c])", "([b])", "([g])", "([f])", "([e])", "_" };
+            string[] lowernotchars = { "[a]", "[b]", "[c]", "[d]", "[e]", "[f]", "[g]", "[g]", "([c])", "([b])", "([g])", "([f])", "([e])", "_" };
+            string[] midnotchars = { "a", "b", "c", "d", "e", "f", "g", "(c)", "(b)", "(g)", "(f)", "(e)", "_" };
+            string[] highnotchars = { "A", "B", "C", "D", "E", "F", "G", "(C)", "(B)", "(G)", "(F)", "(E)", "_" };
+            string[] norfullnotchars = { "a", "b", "c", "d", "e", "f", "g", "A", "B", "C", "D", "E", "F", "G", "[a]", "[b]", "[c]", "[d]", "[e]", "[f]", "[g]" };
+            string[] norlowernotchars = { "[a]", "[b]", "[c]", "[d]", "[e]", "[f]", "[g]", "[g]", "([c])", "([b])", "([g])", "([f])", "([e])" };
+            string[] normidnotchars = { "a", "b", "c", "d", "e", "f" , "(c)", "(b)", "(g)", "(f)", "(e)" };
+            string[] norhighnotchars = { "A", "B", "C", "D", "E", "F", "G", "(C)", "(B)", "(G)", "(F)", "(E)" };
+
+            string[] fftiming = { "1000", "500", "250", "125", "63" };
+            string[] setiming = { "999", "333", "111", "37" };
+
+            if (r == "y")
+            {
+                if (oct == "1") { notchars = fullnotchars; }
+                else if (oct == "2") { notchars = lowernotchars; }
+                else if (oct == "3") { notchars = midnotchars; }
+                else if (oct == "4") { notchars = highnotchars; }
+                else { Environment.Exit(0); }
+            }
+            else if (r == "n")
+            {
+                if (oct == "1") { notchars = norfullnotchars; }
+                else if (oct == "2") { notchars = norlowernotchars; }
+                else if (oct == "3") { notchars = normidnotchars; }
+                else if (oct == "4") { notchars = norhighnotchars; }
+                else { Environment.Exit(0); }
+            }
+            else { Environment.Exit(0); }
+
+            if (tim == "1") { timesig = fftiming; }
+            else if (tim == "2") { timesig = setiming; }
+            else { Environment.Exit(0); }
+
+            int a = random.Next(notchars.Length);
+            string not = notchars[a];
+
+            int b = random.Next(timesig.Length);
+            string len = timesig[b];
+
+            return not + "-" + len;
+        }
 
         static void Main(string[] args)
         {
+            int rif = 0;
+
             int hcs = 1108;
             int hc = 1046;
             int hb = 987;
@@ -54,16 +110,20 @@ namespace ConsoleApp1
             int vld = 146;
 
             string fromcon = " ";
+            string[] sep = { };
+            int timetoloop = 0;
 
-            Console.Write("Would you like to [r]ead a file or [w]rite a song in the command line: ");
+            Console.Write("Would you like to read a [f]ile, play [r]andom music or [w]rite a song in the command line: ");
             string howtoplay = Console.ReadLine();
 
             if (howtoplay == "w")
             {
                 Console.Write("Type your melody in here: ");
                 fromcon = Console.ReadLine();
+                sep = fromcon.Split(" ");
+                timetoloop = fromcon.Length;
             }
-            else if (howtoplay == "r")
+            else if (howtoplay == "f")
             {
                 Console.Write("What file do you want to play: ");
                 string fille = Console.ReadLine().Replace("\"", "");
@@ -76,18 +136,47 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("This file does not exist!");
                 }
+                sep = fromcon.Split(" ");
+                timetoloop = fromcon.Length;
+            }
+            else if (howtoplay == "r")
+            {
+                Console.Write(@"Do you want rests Y/N: ");
+                r1 = Console.ReadLine().ToLower();
+
+                Console.Write("Choose your time signature: \n1) 4/4\n2) 6/8\n\nMake your choice: ");
+                tim1 = Console.ReadLine();
+
+                Console.Write("Choose your octave:\n1) Full range\n2) Lower notes\n3) Mid notes\n4) Higher notes\n\nMake your choice: ");
+                oct1 = Console.ReadLine().ToLower();
+
+                timetoloop = 999999;
+
+                rif = 1;
             }
 
-            string[] sep = fromcon.Split(" ");
             int i = 0;
-            while (i != fromcon.Length)
+            while (i != timetoloop)
             {
                 try
                 {
-                    string input = sep[i];
-                    string dur2 = input.Substring(input.LastIndexOf('-') + 1);
-                    int dur = int.Parse(dur2);
-                    string toplay = input.Split('-')[0];
+                    int dur = 0;
+                    string toplay = "";
+
+                    if (rif ==-0)
+                    {
+                        string input = sep[i];
+                        string dur2 = input.Substring(input.LastIndexOf('-') + 1);
+                        dur = int.Parse(dur2);
+                        toplay = input.Split('-')[0];
+                    }
+                    else if (rif == 1)
+                    {
+                        string input = getnot(r1, tim1, oct1);
+                        string dur2 = input.Substring(input.LastIndexOf('-') + 1);
+                        dur = int.Parse(dur2);
+                        toplay = input.Split('-')[0];
+                    }
 
                     //
                     // very low ocatave
